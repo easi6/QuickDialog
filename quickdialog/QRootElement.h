@@ -19,7 +19,10 @@
 typedef enum  {
     QPresentationModeNormal = 0,
     QPresentationModePopover,
-    QPresentationModeNavigationInPopover
+    QPresentationModeNavigationInPopover,
+    QPresentationModeModalForm,
+    QPresentationModeModalFullScreen,
+    QPresentationModeModalPage
 } QPresentationMode;
 
 @interface QRootElement : QElement {
@@ -50,6 +53,9 @@ typedef enum  {
 - (QSection *)getSectionForIndex:(NSInteger)index;
 - (NSInteger)numberOfSections;
 
+- (QSection *)getVisibleSectionForIndex:(NSInteger)index;
+- (NSInteger)visibleNumberOfSections;
+- (NSUInteger)getVisibleIndexForSection: (QSection*)section;
 
 - (void)fetchValueIntoObject:(id)obj;
 
